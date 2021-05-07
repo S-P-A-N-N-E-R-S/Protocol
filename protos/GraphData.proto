@@ -16,7 +16,6 @@ message Vertex {
     double x = 2;
     double y = 3;
     double z = 4;
-    // optional int32 z = 4;
 
     map<string, string> attributes = 5;
 }
@@ -33,10 +32,11 @@ message Edge {
 }
 
 message Graph {
-    repeated Edge edgeList = 1;
-    repeated Vertex vertexList = 2;
+    uint64 uid = 1;
+    repeated Edge edgeList = 2;
+    repeated Vertex vertexList = 3;
 
-    map<string, string> attributes = 3;
+    map<string, string> attributes = 4;
 }
 
 message ShortPathRequest {
@@ -45,17 +45,38 @@ message ShortPathRequest {
     uint32 endIndex = 3;
 };
 
+message ShortPathResponse {
+    Graph graph = 1;
+};
+
 // Add more request and response types
 
-message GraphContainer {
-
+message RequestContainer {
     enum RequestType {
-        shortestPath = 0;
-        // ... add more modes/types
+        SHORTEST_PATH = 0;
+        // Add more modes/types
     };
 
     RequestType type = 1;
 
     google.protobuf.Any request = 2;
+};
 
+message ResponseContainer {
+    enum StatusCode {
+        OK = 0;
+        ERROR = 1;
+        // TODO Add  more error codes
+    };
+
+    enum ResponseType {
+        SHORTEST_PATH = 0;
+        // Add more modes/types
+    };
+
+    StatusCode status = 1;
+
+    ResponseType type = 2;
+
+    google.protobuf.Any response = 3;
 };
