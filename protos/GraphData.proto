@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+// First install protobuf-compiler package on linux
+// Compile with:
+// protoc --proto_path=./ --cpp_out=./lib/protos GraphData.proto
+// To use optional add --experimental_allow_proto3_optional
+
+// Gzip compression while serializing of Message in C++ with class GzipOutputStream of libprotoc
+//      GzipOutputStream gzipOutputStream {<ostream instance>};
+//      messageObject.SerializeToZeroCopyStream(&gzipOutputStream);
+
+import "google/protobuf/any.proto";
+
+message Vertex {
+    uint64 uid = 1;
+    double x = 2;
+    double y = 3;
+    double z = 4;
+    // optional int32 z = 4;
+
+    map<string, string> attributes = 5;
+}
+
+message Edge {
+    uint64 uid = 1;
+    uint32 inVertexIndex = 2;
+    uint32 outVertexIndex = 3;
+    // repeated double cost = 4;
+    // If number not enough for costs: repeated EdgeCost cost = 4;
+    map<uint32, double> cost = 4;
+
+    map<string, string> attributes = 5;
+}
+
+message Graph {
+    repeated Edge edgeList = 1;
+    repeated Vertex vertexList = 2;
+
+    map<string, string> attributes = 3;
+}
+
+message ShortPathRequest {
+    Graph graph = 1;
+    uint32 startIndex = 2;
+    uint32 endIndex = 3;
+};
+
+// Add more request and response types
+
+message GraphContainer {
+
+    enum RequestType {
+        shortestPath = 0;
+        // ... add more modes/types
+    };
+
+    RequestType type = 1;
+
+    google.protobuf.Any request = 2;
+
+};
