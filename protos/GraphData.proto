@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+package graphs;
+
 // First install protobuf-compiler package on linux
 // Compile with:
 // protoc --proto_path=./ --cpp_out=./lib/protos GraphData.proto
