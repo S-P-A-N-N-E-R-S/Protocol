@@ -24,8 +24,8 @@ message Vertex {
 
 message Edge {
     uint64 uid = 1;
-    uint32 inVertexIndex = 2;
-    uint32 outVertexIndex = 3;
+    uint64 inVertexUid = 2;
+    uint64 outVertexUid = 3;
     // repeated double cost = 4;
     // If number not enough for costs: repeated EdgeCost cost = 4;
     map<uint32, double> cost = 4;
