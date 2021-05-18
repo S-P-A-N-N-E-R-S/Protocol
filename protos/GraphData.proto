@@ -43,8 +43,8 @@ message Graph {
 
 message ShortPathRequest {
     Graph graph = 1;
-    uint32 startIndex = 2;
-    uint32 endIndex = 3;
+    uint64 startIndex = 2;
+    uint64 endIndex = 3;
 };
 
 message ShortPathResponse {
