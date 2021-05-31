@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package graphs;
+
+import "google/protobuf/any.proto";
+
+message RequestContainer {
+    enum RequestType {
+        UNDEFINED_REQUEST = 0;
+        SHORTEST_PATH = 1;
+        // Add more modes/types
+    };
+
+    RequestType type = 1;
+
+    // Any can contain any message mentioned in <Request.proto>
+    google.protobuf.Any request = 2;
+};
+
+message ResponseContainer {
+    enum StatusCode {
+        UNDEFINED_STATUS = 0;
+        OK = 1;
+        ERROR = 2;
+        // TODO Add  more error codes
+    };
+
+    enum ResponseType {
+        UNDEFINED_RESPONSE = 0;
+        SHORTEST_PATH = 1;
+        // Add more modes/types
+    };
+
+    StatusCode status = 1;
+
+    ResponseType type = 2;
+
+    // Any can contain any message mentioned in <Response.proto>
+    google.protobuf.Any response = 3;
+};

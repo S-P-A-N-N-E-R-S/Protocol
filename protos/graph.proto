@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package graphs;
+
+message Vertex {
+    uint64 uid = 1;
+};
+
+message Edge {
+    uint64 uid = 1;
+    uint64 inVertexUid = 2;
+    uint64 outVertexUid = 3;
+};
+
+message Graph {
+    uint64 uid = 1;
+    repeated Edge edgeList = 2;
+    repeated Vertex vertexList = 3;
+};
