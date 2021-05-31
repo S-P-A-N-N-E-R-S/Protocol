@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package graphs;
+
+import "Graph.proto";
+
+message ShortestPathRequest {
+    message VertexCoordinates {
+        double x = 1;
+        double y = 2;
+        double z = 3;
+    };
+
+    Graph graph = 1;
+    uint64 startIndex = 2;
+    uint64 endIndex = 3;
+
+    // Key is uid of referenced Edge
+    map<uint64, double> edgeCost = 4;
+};
+
+message ShortestPathResponse {
+    Graph graph = 1;
+
+    // Key is uid of referenced Edge
+    map<uint64, double> edgeCost = 2;
+};
