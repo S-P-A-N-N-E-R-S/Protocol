@@ -17,6 +17,9 @@ message ShortestPathRequest {
 
     // Key is uid of referenced Edge
     map<uint64, double> edgeCost = 4;
+
+    // Key is uid of referenced Vertex
+    map<uint64, VertexCoordinates> vertexCoordinates = 5;
 };
 
 message ShortestPathResponse {
