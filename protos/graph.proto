@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package graphs;
 
+option cc_enable_arenas = true;
+
 message Vertex {
     uint64 uid = 1;
 };
