@@ -16,12 +16,12 @@ protocol buffer message <RequestContainer> or <ResponseContainer>.
 To generate the C++ representation of the messages:
 ```
 $ mkdir build
-$ protoc --proto_path=./protos/ --cpp_out=./build/ container.proto graph.proto shortest_path.proto <other_response_request_message>.proto
+$ protoc --proto_path=./protos/ --cpp_out=./build/ ./protos/*.proto
 ```
 
 To generate the Python representation of the messages:
 ```
 $ mkdir build
-$ protoc --proto_path=./protos/ --python_out=./build/ container.proto graph.proto shortest_path.proto <other_response_request_message>.proto
+$ protoc --proto_path=./protos/ --python_out=./build/ ./protos/*.proto
 ```
 
