@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package graphs;
+
+import "graph.proto";
+
+option cc_enable_arenas = true;
+
+message VertexCoordinates {
+    double x = 1;
+    double y = 2;
+    double z = 3;
+};
+
+message KruskalRequest {
+    Graph graph = 1;
+
+    map<uint64, double> edgeCost = 2;
+
+    map<uint64, VertexCoordinates> vertexCoordinates = 3;
+};
+
+message KruskalResponse {
+    Graph graph = 1;
+
+    // Key is uid of referenced Edge
+    map<uint64, double> edgeCost = 2;
+
+    // Key is uid of referenced Vertex
+    map<uint64, vertexCoordinates> vertexCoordinates = 3;
+};

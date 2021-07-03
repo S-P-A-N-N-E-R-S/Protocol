@@ -10,6 +10,7 @@ message RequestContainer {
     enum RequestType {
         UNDEFINED_REQUEST = 0;
         SHORTEST_PATH = 1;
+        KRUSKAL = 2;
         // Add more modes/types
     };
 
@@ -30,6 +31,7 @@ message ResponseContainer {
     enum ResponseType {
         UNDEFINED_RESPONSE = 0;
         SHORTEST_PATH = 1;
+        KRUSKAL = 2;
         // Add more modes/types
     };
 
