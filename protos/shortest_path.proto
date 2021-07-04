@@ -3,14 +3,9 @@ syntax = "proto3";
 package graphs;
 
 import "graph.proto";
+import "shared_messages.proto";
 
 option cc_enable_arenas = true;
-
-message VertexCoordinates {
-    double x = 1;
-    double y = 2;
-    double z = 3;
-};
 
 message ShortestPathRequest {
     Graph graph = 1;
@@ -18,7 +13,7 @@ message ShortestPathRequest {
     uint64 endIndex = 3;
 
     // Key is uid of referenced Edge
-    map<uint64, double> edgeCost = 4;
+    map<uint64, double> edgeCosts = 4;
 
     // Key is uid of referenced Vertex
     map<uint64, VertexCoordinates> vertexCoordinates = 5;
@@ -28,7 +23,7 @@ message ShortestPathResponse {
     Graph graph = 1;
 
     // Key is uid of referenced Edge
-    map<uint64, double> edgeCost = 2;
+    map<uint64, double> edgeCosts = 2;
 
     // Key is uid of referenced Vertex
     map<uint64, VertexCoordinates> vertexCoordinates = 3;

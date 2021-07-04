@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package graphs;
+
+option cc_enable_arenas = true;
+
+message VertexCoordinates {
+    double x = 1;
+    double y = 2;
+    double z = 3;
+};
