@@ -3,14 +3,9 @@ syntax = "proto3";
 package graphs;
 
 import "graph.proto";
+import "shared_messages.proto";
 
 option cc_enable_arenas = true;
-
-message VertexCoordinates {
-    double x = 1;
-    double y = 2;
-    double z = 3;
-};
 
 message ShortestPathRequest {
     Graph graph = 1;
