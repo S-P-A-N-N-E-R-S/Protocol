@@ -6,15 +6,16 @@ import "google/protobuf/any.proto";
 
 option cc_enable_arenas = true;
 
-message RequestContainer {
-    enum RequestType {
-        UNDEFINED_REQUEST = 0;
-        GENERIC = 1;
-        SHORTEST_PATH = 2;
-        KRUSKAL = 3;
-        // Add more modes/types
-    };
+enum RequestType {
+    UNDEFINED_REQUEST = 0;
+    AVAILABLE_HANDLERS = 1;
+    GENERIC = 10;
+    SHORTEST_PATH = 11;
+    KRUSKAL = 12;
+    // Add more modes/types
+};
 
+message RequestContainer {
     RequestType type = 1;
 
     // Any can contain any message mentioned in <Request.proto>
@@ -29,17 +30,9 @@ message ResponseContainer {
         // TODO Add  more error codes
     };
 
-    enum ResponseType {
-        UNDEFINED_RESPONSE = 0;
-        GENERIC = 1;
-        SHORTEST_PATH = 2;
-        KRUSKAL = 3;
-        // Add more modes/types
-    };
-
     StatusCode status = 1;
 
-    ResponseType type = 2;
+    RequestType type = 2;
 
     // Any can contain any message mentioned in <Response.proto>
     google.protobuf.Any response = 3;
