@@ -9,8 +9,9 @@ option cc_enable_arenas = true;
 message RequestContainer {
     enum RequestType {
         UNDEFINED_REQUEST = 0;
-        SHORTEST_PATH = 1;
-        KRUSKAL = 2;
+        GENERIC = 1;
+        SHORTEST_PATH = 2;
+        KRUSKAL = 3;
         // Add more modes/types
     };
 
@@ -30,8 +31,9 @@ message ResponseContainer {
 
     enum ResponseType {
         UNDEFINED_RESPONSE = 0;
-        SHORTEST_PATH = 1;
-        KRUSKAL = 2;
+        GENERIC = 1;
+        SHORTEST_PATH = 2;
+        KRUSKAL = 3;
         // Add more modes/types
     };
 
