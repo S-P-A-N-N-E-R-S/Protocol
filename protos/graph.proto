@@ -10,8 +10,8 @@ message Vertex {
 
 message Edge {
     uint64 uid = 1;
-    uint64 inVertexUid = 2;
-    uint64 outVertexUid = 3;
+    uint64 inVertexIndex = 2;
+    uint64 outVertexIndex = 3;
 };
 
 message Graph {

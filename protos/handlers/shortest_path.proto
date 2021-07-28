@@ -9,22 +9,16 @@ option cc_enable_arenas = true;
 
 message ShortestPathRequest {
     Graph graph = 1;
-    uint64 startIndex = 2;
-    uint64 endIndex = 3;
+    uint64 startUid = 2;
+    uint64 endUid = 3;
 
-    // Key is uid of referenced Edge
-    map<uint64, double> edgeCosts = 4;
-
-    // Key is uid of referenced Vertex
-    map<uint64, VertexCoordinates> vertexCoordinates = 5;
+    repeated double edgeCosts = 4;
+    repeated VertexCoordinates vertexCoordinates = 5;
 };
 
 message ShortestPathResponse {
     Graph graph = 1;
 
-    // Key is uid of referenced Edge
-    map<uint64, double> edgeCosts = 2;
-
-    // Key is uid of referenced Vertex
-    map<uint64, VertexCoordinates> vertexCoordinates = 3;
+    repeated double edgeCosts = 2;
+    repeated VertexCoordinates vertexCoordinates = 3;
 };
