@@ -26,7 +26,10 @@ message ResponseContainer {
         UNDEFINED_STATUS = 0;
         OK = 1;
         ERROR = 2;
-        // TODO Add  more error codes
+        READ_ERROR = 3;
+        PROTO_PARSING_ERROR = 4;
+        INVALID_REQUEST_ERROR = 5;
+        // Add more status codes if necessary
     };
 
     enum ResponseType {
