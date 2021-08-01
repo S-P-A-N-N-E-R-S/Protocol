@@ -15,13 +15,15 @@ message FieldInformation {
         INT = 3;
         DOUBLE = 4;
         STRING = 5;
-        GRAPH = 6;
-        EDGE_COSTS = 7;
-        VERTEX_COSTS = 8;
-        EDGE_ID = 9;
-        VERTEX_ID = 10;
-        EDGE_ID_ARRAY = 11;
-        VERTEX_ID_ARRAY = 12;
+        CHOICE = 6;
+        GRAPH = 7;
+        EDGE_COSTS = 8;
+        VERTEX_COSTS = 9;
+        EDGE_ID = 10;
+        VERTEX_ID = 11;
+        EDGE_ID_ARRAY = 12;
+        VERTEX_ID_ARRAY = 13;
+        VERTEX_COORDINATES = 14;
         // TODO: extend with more field types if needed
     }
 
@@ -39,9 +41,21 @@ message FieldInformation {
 }
 
 message HandlerInformation {
+    enum HandlerReturnType {
+        UNDEFINED_RETURN_TYPE = 0;
+        GRAPH = 1;
+        INT = 2;
+        DOUBLE = 3;
+        STRING = 4;
+        EDGE_ARRAY = 5;
+        VERTEX_ARRAY = 6;
+        // TODO: extend with more return types if needed
+    }
+
     RequestType request_type = 1;
     string name = 2;
     repeated FieldInformation fields = 3;
+    HandlerReturnType return_type = 4;
 }
 
 message AvailableHandlersResponse {
