@@ -40,22 +40,31 @@ message FieldInformation {
     map<string, string> choices = 6; // must be empty if type != CHOICE, else contains all available choices
 }
 
-message HandlerInformation {
+message ResultInformation {
     enum HandlerReturnType {
         UNDEFINED_RETURN_TYPE = 0;
         GRAPH = 1;
         INT = 2;
         DOUBLE = 3;
         STRING = 4;
-        EDGE_ARRAY = 5;
-        VERTEX_ARRAY = 6;
+        EDGE_COSTS = 5;
+        VERTEX_COSTS = 6;
+        EDGE_ID = 7;
+        VERTEX_ID = 8;
+        EDGE_ID_ARRAY = 9;
+        VERTEX_ID_ARRAY = 10;
+        VERTEX_COORDINATES = 11;
         // TODO: extend with more return types if needed
     }
+    HandlerReturnType type = 1;
+    string key = 2;
+}
 
+message HandlerInformation {
     RequestType request_type = 1;
     string name = 2;
     repeated FieldInformation fields = 3;
-    HandlerReturnType return_type = 4;
+    repeated ResultInformation result = 4;
 }
 
 message AvailableHandlersResponse {
