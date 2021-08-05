@@ -7,50 +7,46 @@ import "shared_messages.proto";
 
 option cc_enable_arenas = true;
 
+enum AttributeType {
+    UNKNOWN = 0;
+    VERTEX = 1;
+    EDGE = 2;
+};
+
 message IntAttributes {
-    map<uint64, sint64> attributes = 1;
+    repeated sint64 attributes = 1;
+    AttributeType type = 2;
 };
 
 message DoubleAttributes {
-    map<uint64, double> attributes = 1;
+    repeated double attributes = 1;
+    AttributeType type = 2;
 };
 
 message GenericRequest {
-
     string handlerType = 1;
 
     Graph graph = 2;
 
-    map<uint64, VertexCoordinates> vertexCoordinates = 3;
-
-    map<uint64, double> edgeCosts = 4;
-
-    map<uint64, double> vertexCosts = 5;
+    repeated VertexCoordinates vertexCoordinates = 3;
+    repeated double edgeCosts = 4;
+    repeated double vertexCosts = 5;
 
     map<string, IntAttributes> intAttributes = 6;
-
     map<string, DoubleAttributes> doubleAttributes = 7;
-
     map<string, string> graphAttributes = 8;
-
 };
 
 message GenericResponse {
-
     string handlerType = 1;
 
     Graph graph = 2;
 
-    map<uint64, VertexCoordinates> vertexCoordinates = 3;
-
-    map<uint64, double> edgeCosts = 4;
-
-    map<uint64, double> vertexCosts = 5;
+    repeated VertexCoordinates vertexCoordinates = 3;
+    repeated double edgeCosts = 4;
+    repeated double vertexCosts = 5;
 
     map<string, IntAttributes> intAttributes = 6;
-
     map<string, DoubleAttributes> doubleAttributes = 7;
-
     map<string, string> graphAttributes = 8;
-
 };
