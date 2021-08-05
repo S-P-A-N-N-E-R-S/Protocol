@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package graphs;
+
+import "container.proto";
+import "google/protobuf/any.proto";
+
+option cc_enable_arenas = true;
+
+message FieldInformation {
+    enum FieldType {
+        UNDEFINED_FIELD = 0;
+        LITERAL = 1;
+        BOOL = 2;
+        INT = 3;
+        DOUBLE = 4;
+        STRING = 5;
+        CHOICE = 6;
+        GRAPH = 7;
+        EDGE_COSTS = 8;
+        VERTEX_COSTS = 9;
+        EDGE_ID = 10;
+        VERTEX_ID = 11;
+        EDGE_ID_ARRAY = 12;
+        VERTEX_ID_ARRAY = 13;
+        VERTEX_COORDINATES = 14;
+        // TODO: extend with more field types if needed
+    }
+
+    FieldType type = 1;
+    string label = 2;
+
+    /**
+     * Either the name of a field in the message itself (e.g. "graph") or a field in one of the generic maps,
+     * prefixed by the map name (e.g. "doubleAttributes.alpha")
+     */
+    string key = 3;
+    google.protobuf.Any default = 4;
+    bool required = 5;
+    map<string, string> choices = 6; // must be empty if type != CHOICE, else contains all available choices
+}
+
+message ResultInformation {
+    enum HandlerReturnType {
+        UNDEFINED_RETURN_TYPE = 0;
+        GRAPH = 1;
+        INT = 2;
+        DOUBLE = 3;
+        STRING = 4;
+        EDGE_COSTS = 5;
+        VERTEX_COSTS = 6;
+        EDGE_ID = 7;
+        VERTEX_ID = 8;
+        EDGE_ID_ARRAY = 9;
+        VERTEX_ID_ARRAY = 10;
+        VERTEX_COORDINATES = 11;
+        // TODO: extend with more return types if needed
+    }
+    HandlerReturnType type = 1;
+    string key = 2;
+}
+
+message HandlerInformation {
+    RequestType request_type = 1;
+    string name = 2;
+    repeated FieldInformation fields = 3;
+    repeated ResultInformation result = 4;
+}
+
+message AvailableHandlersResponse {
+    repeated HandlerInformation handlers = 1;
+};
