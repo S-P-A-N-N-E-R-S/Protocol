@@ -58,13 +58,14 @@ message ResultInformation {
     }
     HandlerReturnType type = 1;
     string key = 2;
+    string label = 3; // Only needed for simple types like INT, DOUBLE, STRING
 }
 
 message HandlerInformation {
     RequestType request_type = 1;
     string name = 2;
     repeated FieldInformation fields = 3;
-    repeated ResultInformation result = 4;
+    repeated ResultInformation results = 4;
 }
 
 message AvailableHandlersResponse {
