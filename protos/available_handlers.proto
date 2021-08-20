@@ -64,8 +64,9 @@ message ResultInformation {
 message HandlerInformation {
     RequestType request_type = 1;
     string name = 2;
-    repeated FieldInformation fields = 3;
-    repeated ResultInformation results = 4;
+    string description = 3;
+    repeated FieldInformation fields = 4;
+    repeated ResultInformation results = 5;
 }
 
 message AvailableHandlersResponse {
