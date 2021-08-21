@@ -4,6 +4,17 @@ package graphs;
 
 option cc_enable_arenas = true;
 
+enum RequestType {
+    UNDEFINED_REQUEST = 0;
+    AVAILABLE_HANDLERS = 1;
+    GENERIC = 10;
+    SHORTEST_PATH = 11;
+    KRUSKAL = 12;
+    // Add more modes/types
+};
+
 message MetaData {
-    uint64 containerSize = 1;
+    RequestType type = 1;
+
+    uint64 containerSize = 2;
 };
