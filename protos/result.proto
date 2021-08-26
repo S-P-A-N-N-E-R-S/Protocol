@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package graphs;
+
+message ResultRequest {
+    int32 jobId = 1;
+};
