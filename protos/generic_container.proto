@@ -8,7 +8,7 @@ import "shared_messages.proto";
 option cc_enable_arenas = true;
 
 enum AttributeType {
-    UNKNOWN = 0;
+    UNKNOWN_ATTRIBUTE_TYPE = 0;
     VERTEX = 1;
     EDGE = 2;
 };
