@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package graphs;
+
+// import "google/protobuf/timestamp.proto";
+// import "status.proto";
+
+// message ResultRequest {
+//     int32 job_id = 1;
+//     bool data = 2; // If data is true, data is send back
+// };
+
+// message ResultMetaInformation {
+//     int32 job_id = 1;
+//     StatusType status = 2;
+//     google.protobuf.Timestamp received = 3;
+//     google.protobuf.Timestamp started = 4;
+//     google.protobuf.Timestamp ended = 5;
+//     int64 ogdf_runtime = 6;
+//     string stdout_msg = 7;
+//     string error_message = 8;
+// }

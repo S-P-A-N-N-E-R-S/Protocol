@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package graphs;
+
+import "google/protobuf/timestamp.proto";
+
+enum StatusType {
+  UNKNOWN = 0;
+  WAITING = 1;
+  RUNNING = 2;
+  SUCCESS = 3;
+  FAILED = 4;
+  ABORTED = 5;
+};
+
+message StatusRequest {
+    // Add filtering options later
+};
+
+message StatusResponse {
+    repeated StatusSingle states = 1;
+}
+
+message StatusSingle {
+    int32 job_id = 1;
+    StatusType status = 2;
+    //google.protobuf.Timestamp last_change = 3;
+};
