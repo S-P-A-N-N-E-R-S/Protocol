@@ -11,6 +11,7 @@ enum AttributeType {
     UNKNOWN_ATTRIBUTE_TYPE = 0;
     VERTEX = 1;
     EDGE = 2;
+    SCALAR = 3;
 };
 
 message IntAttributes {
