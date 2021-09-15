@@ -3,6 +3,7 @@ syntax = "proto3";
 package graphs;
 
 import "google/protobuf/timestamp.proto";
+import "meta.proto";
 
 enum StatusType {
   UNKNOWN_STATUS = 0;
@@ -23,6 +24,16 @@ message StatusResponse {
 
 message StatusSingle {
     int32 job_id = 1;
+
     StatusType status = 2;
+
+    string statusMessage = 3;
+
+    RequestType requestType = 4;
+
+    string handlerType = 5;
+
+    string jobName = 6;
+
     //google.protobuf.Timestamp last_change = 3;
 };
