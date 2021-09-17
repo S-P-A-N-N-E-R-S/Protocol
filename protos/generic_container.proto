@@ -24,8 +24,6 @@ message DoubleAttributes {
 };
 
 message GenericRequest {
-    string handlerType = 1;
-
     Graph graph = 2;
 
     repeated VertexCoordinates vertexCoordinates = 3;
