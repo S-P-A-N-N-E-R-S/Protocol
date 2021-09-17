@@ -24,27 +24,25 @@ message DoubleAttributes {
 };
 
 message GenericRequest {
-    Graph graph = 2;
+    Graph graph = 1;
 
-    repeated VertexCoordinates vertexCoordinates = 3;
-    repeated double edgeCosts = 4;
-    repeated double vertexCosts = 5;
+    repeated VertexCoordinates vertexCoordinates = 2;
+    repeated double edgeCosts = 3;
+    repeated double vertexCosts = 4;
 
-    map<string, IntAttributes> intAttributes = 6;
-    map<string, DoubleAttributes> doubleAttributes = 7;
-    map<string, string> graphAttributes = 8;
+    map<string, IntAttributes> intAttributes = 5;
+    map<string, DoubleAttributes> doubleAttributes = 6;
+    map<string, string> graphAttributes = 7;
 };
 
 message GenericResponse {
-    string handlerType = 1;
+    Graph graph = 1;
 
-    Graph graph = 2;
+    repeated VertexCoordinates vertexCoordinates = 2;
+    repeated double edgeCosts = 3;
+    repeated double vertexCosts = 4;
 
-    repeated VertexCoordinates vertexCoordinates = 3;
-    repeated double edgeCosts = 4;
-    repeated double vertexCosts = 5;
-
-    map<string, IntAttributes> intAttributes = 6;
-    map<string, DoubleAttributes> doubleAttributes = 7;
-    map<string, string> graphAttributes = 8;
+    map<string, IntAttributes> intAttributes = 5;
+    map<string, DoubleAttributes> doubleAttributes = 6;
+    map<string, string> graphAttributes = 7;
 };
