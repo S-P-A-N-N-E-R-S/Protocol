@@ -19,5 +19,7 @@ enum RequestType {
 message MetaData {
     RequestType type = 1;
 
-    uint64 containerSize = 2;
+    string handlerType = 2;
+
+    uint64 containerSize = 3;
 };
