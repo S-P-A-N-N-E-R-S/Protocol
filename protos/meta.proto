@@ -22,4 +22,6 @@ message MetaData {
     string handlerType = 2;
 
     uint64 containerSize = 3;
+
+    string jobName = 4;
 };
