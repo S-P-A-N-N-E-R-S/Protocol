@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package graphs;
+
+enum ErrorType {
+    UNKNOWN_ERROR = 0;
+    UNAUTHORIZED = 1;
+};
+
+message ErrorMessage {
+    ErrorType type = 1;
+
+    string message = 2;
+};
