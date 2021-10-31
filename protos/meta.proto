@@ -10,10 +10,18 @@ enum RequestType {
     STATUS = 2;
     NEW_JOB_RESPONSE = 3;
     RESULT = 4;
+    AUTH = 5;
+    ERROR = 6;
     GENERIC = 10;
     SHORTEST_PATH = 11;
     KRUSKAL = 12;
     // Add more modes/types
+};
+
+message UserData {
+    string name = 1;
+
+    string password = 2;
 };
 
 message MetaData {
@@ -24,4 +32,6 @@ message MetaData {
     uint64 containerSize = 3;
 
     string jobName = 4;
+
+    UserData user = 5;
 };
