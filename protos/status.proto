@@ -5,6 +5,8 @@ package graphs;
 import "google/protobuf/timestamp.proto";
 import "meta.proto";
 
+option cc_enable_arenas = true;
+
 enum StatusType {
   UNKNOWN_STATUS = 0;
   WAITING = 1;
@@ -35,5 +37,11 @@ message StatusSingle {
 
     string jobName = 6;
 
-    //google.protobuf.Timestamp last_change = 3;
+    int64 ogdfRuntime = 7;
+
+    google.protobuf.Timestamp timeReceived = 8;
+
+    google.protobuf.Timestamp startingTime = 9;
+
+    google.protobuf.Timestamp endTime = 10;
 };
