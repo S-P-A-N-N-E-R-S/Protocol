@@ -12,6 +12,7 @@ enum RequestType {
     RESULT = 4;
     AUTH = 5;
     ERROR = 6;
+    USER_CREATION = 7;
     GENERIC = 10;
     SHORTEST_PATH = 11;
     KRUSKAL = 12;

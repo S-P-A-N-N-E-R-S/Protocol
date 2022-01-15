@@ -5,6 +5,7 @@ package graphs;
 enum ErrorType {
     UNKNOWN_ERROR = 0;
     UNAUTHORIZED = 1;
+    USER_CREATION = 2;
 };
 
 message ErrorMessage {
