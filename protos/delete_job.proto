@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package graphs;
+
+message DeleteJobRequest {
+    int32 jobId = 1;
+};
