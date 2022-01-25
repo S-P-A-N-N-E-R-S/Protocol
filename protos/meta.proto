@@ -13,6 +13,8 @@ enum RequestType {
     AUTH = 5;
     ERROR = 6;
     CREATE_USER = 7;
+    ABORT_JOB = 8;
+    DELETE_JOB = 9;
     GENERIC = 10;
     SHORTEST_PATH = 11;
     KRUSKAL = 12;
