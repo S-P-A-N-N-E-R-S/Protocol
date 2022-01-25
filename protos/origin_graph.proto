@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package graphs;
+
+import "graph.proto";
+import "shared_messages.proto";
+
+option cc_enable_arenas = true;
+
+message OriginGraphRequest {
+    int32 jobId = 1;
+};
+
+message OriginGraphResponse {
+    Graph graph = 1;
+
+    repeated VertexCoordinates vertexCoordinates = 2;
+    repeated double edgeCosts = 3;
+    repeated double vertexCosts = 4;
+
+    map<string, string> staticAttributes = 5;
+};
