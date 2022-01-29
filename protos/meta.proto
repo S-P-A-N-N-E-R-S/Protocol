@@ -18,6 +18,7 @@ enum RequestType {
     GENERIC = 10;
     SHORTEST_PATH = 11;
     KRUSKAL = 12;
+    ORIGIN_GRAPH = 13;
     // Add more modes/types
 };
 
